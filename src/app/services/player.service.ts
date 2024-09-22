@@ -14,12 +14,12 @@ export class PlayerService {
     this.playersCollection = collection(this.firestore, 'players'); // Typizacja kolekcji
   }
 
-  // Pobierz listę graczy
+  
   getPlayers(): Observable<Player[]> {
     return collectionData(this.playersCollection, { idField: 'id' }) as Observable<Player[]>;
   }
 
-  // Dodaj nowego gracza
+ 
   addPlayer(player: Player): Promise<void> {
     const { id, ...playerData } = player;  
     return addDoc(this.playersCollection, playerData)
@@ -32,13 +32,13 @@ export class PlayerService {
   }
   
 
-  // Edytuj gracza
+  
   updatePlayer(player: Player): Promise<void> {
     const playerDoc = doc(this.firestore, `players/${player.id}`);
     return updateDoc(playerDoc, { ...player });
   }
 
-  // Usuń gracza
+  
   deletePlayer(id: string): Promise<void> {
     const playerDoc = doc(this.firestore, `players/${id}`);
     return deleteDoc(playerDoc);

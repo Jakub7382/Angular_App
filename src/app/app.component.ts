@@ -18,8 +18,8 @@ export class AppComponent {
 
   @ViewChild(PlayerListComponent) playerListComponent!: PlayerListComponent;
 
-  // Funkcja do lokalnego dodania nowego gracza do listy
+  
   addPlayerToList(player: Player) {
-    this.playerListComponent.addLocalPlayer(player);  // Dodajemy gracza lokalnie
+    this.playerListComponent.addLocalPlayer(player); 
   }
 }

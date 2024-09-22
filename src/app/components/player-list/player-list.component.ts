@@ -23,13 +23,13 @@ export class PlayerListComponent {
   loadPlayers(): void {
     this.players$ = this.playerService.getPlayers();
     this.players$.subscribe(players => {
-      this.localPlayers = players;  // Przypisanie lokalnej listy graczy
+      this.localPlayers = players;  
     });
   }
 
-  // Metoda do lokalnego dodania gracza (bez odświeżania całej listy z Firestore)
+ 
   addLocalPlayer(player: Player): void {
-    this.localPlayers.push(player);  // Dodanie gracza do lokalnej listy
+    this.localPlayers.push(player);  
   }
 
   deletePlayer(id: string): void {

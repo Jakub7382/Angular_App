@@ -12,14 +12,14 @@ import { PlayerService } from '../../services/player.service';
 })
 export class PlayerFormComponent implements OnInit {
   @Input() player: Player | null = null;
-  @Output() playerAdded = new EventEmitter<Player>();  // Zmieniamy typ na Player, aby emitować dodanego gracza
+  @Output() playerAdded = new EventEmitter<Player>();  
   isEditing: boolean = false;
 
   constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
     if (!this.player) {
-      this.resetForm();  // Upewniamy się, że zawsze istnieje obiekt player
+      this.resetForm();  
     }
   }
 
@@ -30,11 +30,10 @@ export class PlayerFormComponent implements OnInit {
         this.resetForm();
       });
     } else {
-      // Dodawanie nowego gracza
       if (this.player) {
         this.playerService.addPlayer(this.player).then(() => {
           console.log('Player added');
-          this.playerAdded.emit(this.player!);  // Dodaj '!' aby wskazać, że player na pewno nie jest null
+          this.playerAdded.emit(this.player!);  
           this.resetForm();
         });
       }
