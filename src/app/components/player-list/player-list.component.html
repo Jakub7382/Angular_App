@@ -1,0 +1,22 @@
+<div>
+  <h2>Lista graczy</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Imię i nazwisko</th>
+        <th>Pozycja</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players$ | async">
+        <td>{{ player.name }}</td>
+        <td>{{ player.position }}</td>
+        <td>
+          <button *ngIf="player.id" (click)="editPlayer.emit(player)">Edytuj</button>
+          <button *ngIf="player.id" (click)="deletePlayer(player.id!)">Usuń</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

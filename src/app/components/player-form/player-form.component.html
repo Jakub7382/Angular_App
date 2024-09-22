@@ -1,0 +1,9 @@
+<form (ngSubmit)="addOrUpdatePlayer()">
+  <label for="name">Imię i nazwisko:</label>
+  <input id="name" [(ngModel)]="player!.name" name="name" required />  
+
+  <label for="position">Pozycja:</label>
+  <input id="position" [(ngModel)]="player!.position" name="position" required />  
+
+  <button type="submit">{{ isEditing ? 'Aktualizuj gracza' : 'Dodaj gracza' }}</button>
+</form>
